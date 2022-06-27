@@ -365,8 +365,6 @@ header .container{
 .doing-descr{
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
 
     display: flex;
     justify-content: center;
@@ -377,8 +375,6 @@ header .container{
     height: 70px;
     font-weight: 700;
     line-height: 1.14;
-    white-space: nowrap;
-    text-align: center;
     text-transform: uppercase;
 }
 
@@ -614,6 +610,10 @@ footer .container{
     width: 528px;
     height: 521px;
     background-color: var(--main-bg-color);
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
+        0px 1px 1px rgba(0, 0, 0, 0.14), 
+        0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .close-btn{
@@ -702,68 +702,48 @@ footer .container{
     margin-bottom: 0;
 }
 
-.example-link{
+.example-thumb{
     position: relative;
     overflow: hidden;
+}
 
+.example-link{
     display: block;
     color: var(--main-text-color);
-    box-shadow: none;
     transition: box-shadow 250ms var(--timing-function);
 }   
 
-.example-link::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 294px;
-
-    display: block;
-    background: var(--bg-color-item-before);
-    
-    opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 250ms var(--timing-function),
-        transform 250ms var(--timing-function);
-        
-}
-
 .example-link:hover,
-.example-link:focus {
+.example-link:focus{
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
         0px 4px 4px rgba(0, 0, 0, 0.06),
         1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.item:hover .example-link::before,
-.item:focus .example-link::before{
-    opacity: 1;
-    transform: translateY(0);
-    
-}
-
 .example-descr{
     position: absolute;
-    top: 0;
+    bottom: 0px;
     left: 0;
     width: 100%;
     height: 100%;
     
-    display: flex;
+    display: block;
     font-size: 18px;
     line-height: 1.56em;
     padding: 63px 24px;
     color: var(--main-bg-color);
+    background: var(--bg-color-item-before);
 
     opacity: 0;
-    transition: opacity 250ms var(--timing-function);
+    transform: translateY(100%);
+    transition: opacity 250ms var(--timing-function),
+        transform 250ms var(--timing-function);
 }
 
-.example-descr:hover,
-.example-descr:focus{
+.example-link:hover .example-descr,
+.example-link:focus .example-descr{
     opacity: 1;
+    transform: translateY(0);
 }
 
 .example-name{
